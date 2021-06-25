@@ -54,8 +54,22 @@ function searchDates() {
   var input = d3.select("#datetime").node().value;
   console.log(input);
 
-  var test1 = d3.select("tr");
-  console.log(test1);
-  var test = d3.selectAll("tr");
-  console.log(test._groups[0][110]);
+  // Filter original data
+  var newData = data.filter(sighting => {
+    sighting.datetime === input;
+  });
+
+  // Create new table
+  tbody.html("");
+  newData.forEach(sighting =>
+    {var row = tbody.append("tr");
+    row.append("td").text(sighting.datetime);
+    row.append("td").text(titleCase(sighting.city));
+    row.append("td").text(sighting.state.toUpperCase());
+    row.append("td").text(sighting.country.toUpperCase());
+    row.append("td").text(sighting.shape);
+    row.append("td").text(sighting.durationMinutes);
+    row.append("td").text(sighting.comments);
+    }
+  );
 }
