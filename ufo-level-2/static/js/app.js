@@ -28,6 +28,7 @@ function createTable(inputData) {
     }
   );
 }
+
 // Adding rows of data to table
 createTable(data);
 
