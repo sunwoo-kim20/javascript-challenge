@@ -58,8 +58,26 @@ function searchDates() {
   var countryInput = d3.select("#country").node().value;
   var shapeInput = d3.select("#shape").node().value;
 
-  // Filter original data
-  var newData = data.filter(sighting => sighting.datetime === input);
+  // Create list of dictionaries to hold inputs and fields
+  var fullFilter = [
+    {"field" : "datetime", "inputValue" : dateInput},
+    {"field" : "city", "inputValue" : cityInput},
+    {"field" : "state", "inputValue" : stateInput},
+    {"field" : "country", "inputValue" : countryInput},
+    {"field" : "shape", "inputValue" : shapeInput},
+  ];
+
+  // Create a deep copy of Data
+  var newData = [...data];
+
+  // Use foreach to filter for each input
+  fullFilter.forEach(input => {
+      if (input.inputValue !== "") {
+        newData = newData.filter(sighting => sighting[input.field] === input.inputValue.toLowerCase());
+      }
+    }
+  );
+
 
   // Create new table
   tbody.html("");

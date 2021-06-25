@@ -1,4 +1,4 @@
-// Javascript for date filter 
+// Javascript for date filter
 // Title case function
 function titleCase(str) {
   return str.toLowerCase().split(" ").map(word =>
