@@ -55,9 +55,7 @@ function searchDates() {
   console.log(input);
 
   // Filter original data
-  var newData = data.filter(sighting => {
-    sighting.datetime === input;
-  });
+  var newData = data.filter(sighting => sighting.datetime === input);
 
   // Create new table
   tbody.html("");
