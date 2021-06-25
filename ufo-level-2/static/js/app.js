@@ -72,8 +72,7 @@ function searchDates() {
       }
     }
   );
-
-
+  
   // Create new table
   tbody.html("");
   createTable(newData);
