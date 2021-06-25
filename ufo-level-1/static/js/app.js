@@ -40,6 +40,7 @@ form.on("submit", searchDates);
 // Event handler function
 function searchDates() {
 
+  // Preventing page from refreshing with each search
   d3.event.preventDefault();
 
   // Start with a full table
@@ -53,7 +54,8 @@ function searchDates() {
   // Filter original data
   var newData = data.filter(sighting => sighting.datetime === input);
 
-  // Create new table
+  // Clear old table
   tbody.html("");
+  // Create new table
   createTable(newData);
 }
