@@ -1,4 +1,5 @@
 // Javascript for Date, City, State, Country, Shape filter
+
 // Title case function
 function titleCase(str) {
   return str.toLowerCase().split(" ").map(word =>
@@ -40,6 +41,7 @@ form.on("submit", searchDates);
 // Event handler function
 function searchDates() {
 
+  // Prevent page from refreshing with each search
   d3.event.preventDefault();
 
   // Start with a full table
@@ -72,8 +74,10 @@ function searchDates() {
       }
     }
   );
-  
-  // Create new table
+
+  // Clear old table
   tbody.html("");
+
+  // Create new table
   createTable(newData);
 }
