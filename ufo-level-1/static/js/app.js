@@ -13,6 +13,20 @@ var form = d3.select("#form");
 // Getting a reference to the button
 var button = d3.select("#filter-btn");
 
+// Adding rows of data to table
+data.forEach(sighting =>
+  {var row = tbody.append("tr");
+  row.append("td").text(sighting.datetime);
+  row.append("td").text(titleCase(sighting.city));
+  row.append("td").text(sighting.state.toUpperCase());
+  row.append("td").text(sighting.country.toUpperCase());
+  row.append("td").text(sighting.shape);
+  row.append("td").text(sighting.durationMinutes);
+  row.append("td").text(sighting.comments);
+  }
+);
+
+
 // Create event handlers
 button.on("click", searchDates);
 form.on("submit", searchDates);
