@@ -36,7 +36,26 @@ function searchDates() {
 
   d3.event.preventDefault();
 
+  // Start with a full table
+  tbody.html("");
+  data.forEach(sighting =>
+    {var row = tbody.append("tr");
+    row.append("td").text(sighting.datetime);
+    row.append("td").text(titleCase(sighting.city));
+    row.append("td").text(sighting.state.toUpperCase());
+    row.append("td").text(sighting.country.toUpperCase());
+    row.append("td").text(sighting.shape);
+    row.append("td").text(sighting.durationMinutes);
+    row.append("td").text(sighting.comments);
+    }
+  );
+
   // Getting a reference to the input
   var input = d3.select("#datetime").node().value;
   console.log(input);
+
+  var test1 = d3.select("tr");
+  console.log(test1);
+  var test = d3.selectAll("tr");
+  console.log(test._groups[0][110]);
 }
