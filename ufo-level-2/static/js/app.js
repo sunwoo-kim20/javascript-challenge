@@ -1,3 +1,4 @@
+// Javascript for Date, City, State, Country, Shape filter
 // Title case function
 function titleCase(str) {
   return str.toLowerCase().split(" ").map(word =>
@@ -51,8 +52,11 @@ function searchDates() {
   );
 
   // Getting a reference to the input
-  var input = d3.select("#datetime").node().value;
-  console.log(input);
+  var dateInput = d3.select("#datetime").node().value;
+  var cityInput = d3.select("#city").node().value;
+  var stateInput = d3.select("#state").node().value;
+  var countryInput = d3.select("#country").node().value;
+  var shapeInput = d3.select("#shape").node().value;
 
   // Filter original data
   var newData = data.filter(sighting => sighting.datetime === input);
